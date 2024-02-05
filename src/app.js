@@ -8,8 +8,9 @@ app.use(express.json());
 // Endpoint : /api/get-next-num
 // Return the response as {message : , status: }
 app.use('/api/get-next-num',(req,res)=>{
-    let {num} = parseInt(req.body);
-    return res.status(200).send({
+    let {num} = req.body;
+    num = parseInt(num);
+    return res.send({
         message: num+1,
         status: "success",
     })
